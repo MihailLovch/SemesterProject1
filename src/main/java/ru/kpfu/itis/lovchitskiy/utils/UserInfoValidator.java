@@ -35,7 +35,9 @@ public class UserInfoValidator {
     public static boolean checkAge(String dateOfBirth) {
         return Integer.parseInt(dateOfBirth.split("-")[0]) > 1901 && Integer.parseInt(dateOfBirth.split("-")[0]) < Calendar.getInstance().get(Calendar.YEAR);
     }
-
+    public static List<String> checkUserInfo(String email, String password){
+        return checkUserInfo(null,null,null,null,email,password);
+    }
     public static List<String> checkUserInfo(String name, Float weight, Float height, String dateOfBirth, String email, String password){
         List<String> errors = new ArrayList<>();
         if (name != null){

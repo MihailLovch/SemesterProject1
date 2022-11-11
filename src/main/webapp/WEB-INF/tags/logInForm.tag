@@ -11,6 +11,9 @@
         <c:if test="${not empty logError}">
             <div style="color: red">${logError}</div>
         </c:if>
+        <c:forEach var="errors" items="${logErrors}">
+            <div style="color: red">${errors}</div>
+        </c:forEach>
         <button type="submit" name="login" class="btn-warning">Login</button>
     </form>
 </div>
