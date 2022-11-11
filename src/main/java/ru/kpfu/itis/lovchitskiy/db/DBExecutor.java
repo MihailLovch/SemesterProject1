@@ -6,13 +6,10 @@ import ru.kpfu.itis.lovchitskiy.exceptions.DBException;
 import ru.kpfu.itis.lovchitskiy.exceptions.UserNotFoundException;
 import ru.kpfu.itis.lovchitskiy.exceptions.UserUniqueException;
 
-import java.io.IOException;
-import java.sql.*;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 

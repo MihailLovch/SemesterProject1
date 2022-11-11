@@ -10,7 +10,4 @@ public class MyEncoder {
         return DigestUtils.md5Hex(password + SALT);
     }
 
-    public static void main(String[] args) {
-        System.out.println(encryptPassword("Xre123!%$dg"));
-    }
 }
