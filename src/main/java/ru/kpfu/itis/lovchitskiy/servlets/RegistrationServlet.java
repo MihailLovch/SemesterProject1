@@ -1,8 +1,10 @@
 package ru.kpfu.itis.lovchitskiy.servlets;
 
 import ru.kpfu.itis.lovchitskiy.db.DBExecutor;
+import ru.kpfu.itis.lovchitskiy.db.StatisticRepository;
 import ru.kpfu.itis.lovchitskiy.entities.User;
 import ru.kpfu.itis.lovchitskiy.exceptions.UserUniqueException;
+import ru.kpfu.itis.lovchitskiy.services.AuthenticationService;
 import ru.kpfu.itis.lovchitskiy.utils.AttributeName;
 import ru.kpfu.itis.lovchitskiy.utils.SessionWorker;
 import ru.kpfu.itis.lovchitskiy.utils.UserInfoValidator;
@@ -28,6 +30,7 @@ import java.util.List;
 public class RegistrationServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.setAttribute("display","none");
         getServletContext().getRequestDispatcher("/WEB-INF/views/registration.jsp").forward(req, resp);
     }
 
@@ -42,8 +45,13 @@ public class RegistrationServlet extends HttpServlet {
         String height = req.getParameter(User.HEIGHT_KEY);
         String dateOfBirth = req.getParameter(User.AGE_KEY);
         String sex = req.getParameter(User.SEX_KEY);
+        StatisticRepository stRep = (StatisticRepository) getServletContext().getAttribute(AttributeName.StatisticRepository.value);
         DBExecutor dbExecutor = (DBExecutor) req.getServletContext().getAttribute(AttributeName.DBExecutor.value);
 
+        if (req.getParameter("login") != null) {
+            AuthenticationService.logInUser(req, resp, "/WEB-INF/views/registration.jsp", dbExecutor, stRep);
+            return;
+        }
         if (name != null && !name.isEmpty() &&
                 password != null && !password.isEmpty() &&
                 email != null && !email.isEmpty() &&

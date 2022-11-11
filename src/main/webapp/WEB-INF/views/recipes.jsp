@@ -1,7 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
-<t:page css="${pageContext.request.contextPath}/css/main.css" title="Recipes list"
+<t:page css="${pageContext.request.contextPath}/css/formPopOut.css" title="Recipes list"
         jsPath="${pageContext.request.contextPath}/javascript/recipeSlider.js">
 <c:if test="${not empty error}">
     <div style="color: red; margin-top: 100px"> ${error}</div>
@@ -31,20 +31,6 @@
     <c:if test="${not empty user}">
         <a href="<c:url value='/recipes/add'/>" class="btn btn-warning" role="button">Add new recipe</a>
     </c:if>
-    <div class="form-popup" id="myForm" style="display: ${display}">
-        <form action="" method="post" class="form-container">
-            <h1>Login</h1>
-
-            <label for="email"><b>Email</b></label>
-            <input type="text" placeholder="Enter Email" id="email" name="email" required value="${email}">
-
-            <label for="psw"><b>Password</b></label>
-            <input type="password" placeholder="Enter Password" id="psw" name="password" required>
-            <c:if test="${not empty error}">
-                <div style="color: red">${error}</div>
-            </c:if>
-            <button type="submit" name="login" class="btn-warning">Login</button>
-        </form>
-    </div>
+    <t:logInForm display="${display}"/>
 
 </t:page>

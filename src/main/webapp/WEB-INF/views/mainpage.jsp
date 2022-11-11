@@ -1,7 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
-<t:page css="${pageContext.request.contextPath}/css/main.css" title="Main Page">
+<t:page css="${pageContext.request.contextPath}/css/formPopOut.css" title="Main Page">
 <main>
         <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
             <div class="col-md-5 p-lg-5 mx-auto my-5">
@@ -23,19 +23,5 @@
         </div>
 </main>
 
-    <div class="form-popup" id="myForm" style="display: ${display}">
-        <form action="" method="post" class="form-container">
-            <h1>Login</h1>
-
-            <label for="email"><b>Email</b></label>
-            <input type="text" placeholder="Enter Email" id="email" name="email" required value="${email}">
-
-            <label for="psw"><b>Password</b></label>
-            <input type="password" placeholder="Enter Password" id="psw" name="password" required>
-            <c:if test="${not empty error}">
-                <div style="color: red">${error}</div>
-            </c:if>
-            <button type="submit"  class="btn-warning">Login</button>
-        </form>
-    </div>
+    <t:logInForm display="${display}"/>
 </t:page>

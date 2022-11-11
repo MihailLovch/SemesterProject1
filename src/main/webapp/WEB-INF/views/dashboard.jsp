@@ -1,7 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<t:page title="Cabinet" css="" jsPath="">
+<t:page title="Cabinet" >
 
     <main class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
         <div id="all-info" style="text-align: center; position:relative; margin-top: 20px">

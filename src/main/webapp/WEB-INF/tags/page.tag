@@ -3,7 +3,7 @@
 <%@attribute name="title" required="true" type="java.lang.String"%>
 <%@attribute name="css" required="false" type="java.lang.String"%>
 <%@attribute name="jsPath" required="false" type="java.lang.String"%>
-
+<%@attribute name="logInPage" required="false" type="java.lang.Boolean" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,13 +28,15 @@
                 <li><a href="<c:url value="/favoriteRecipes"/>" class="nav-link px-2 text-white">Favorite recipes</a></li>
                 <li><a href="<c:url value='/profile'/>" class="nav-link px-2 text-white">Profile</a></li>
             </ul>
-
+            <c:if test="${empty user and empty logInPage}">
+                <button type="button" id="signIn" class="btn btn-outline-light me-2">Login</button>
+            </c:if>
             <c:if test="${empty user}">
             <div class="text-end">
-                <button type="button" id="signIn" class="btn btn-outline-light me-2">Login</button>
                 <a href="<c:url value='/reg?'/>" class="btn btn-warning" role="button">Sign-up</a>
             </div>
             </c:if>
+
         </div>
     </div>
 </header>

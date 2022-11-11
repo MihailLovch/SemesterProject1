@@ -55,6 +55,7 @@ public class ProfileEditServlet extends HttpServlet {
                 user.setSex(Boolean.valueOf(sex));
                 dbExecutor.updateUser(user);
                 user = dbExecutor.getUser(user.getEmail());
+                req.getSession().setAttribute(User.USER,user);
             } else {
                 req.setAttribute("errors", errors);
                 doGet(req, resp);
@@ -62,7 +63,7 @@ public class ProfileEditServlet extends HttpServlet {
             }
         } else {
             req.setAttribute("notice", "All fields should be filled");
-            doGet(req, resp);
+            getServletContext().getRequestDispatcher("/WEB-INF/views/profileEdit.jsp").forward(req, resp);
             return;
         }
 

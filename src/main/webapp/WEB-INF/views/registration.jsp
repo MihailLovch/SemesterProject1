@@ -1,7 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
-<t:page title="Registration">
+<t:page title="Registration" css="${pageContext.request.contextPath}/css/formPopOut.css" >
     <c:if test="${not empty notice}">
         <div style="color: green">${notice}</div>
     </c:if>
@@ -28,4 +28,5 @@
     <c:forEach var="errors" items="${errors}">
         <div style="color: red">${errors}</div>
     </c:forEach>
+    <t:logInForm display="${display}"/>
 </t:page>

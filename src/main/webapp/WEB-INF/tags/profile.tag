@@ -2,7 +2,8 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <%@attribute name="edit" required="true" type="java.lang.Boolean" %>
-    <form>
+
+    <form action="" method="post">
         <section class="section about-section gray-bg" id="about">
             <div class="container">
                 <div class="row align-items-center flex-row-reverse">
@@ -51,7 +52,6 @@
                         </div>
                     </div>
                 </div>
-                <form>
                     <div class="counter">
                         <div class="row">
                             <div class="col-6 col-lg-3">
@@ -109,7 +109,6 @@
                             </div>
                         </div>
                     </div>
-                </form>
             </div>
         </section>
         <c:if test="${not edit}">

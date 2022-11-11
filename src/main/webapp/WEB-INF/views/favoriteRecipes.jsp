@@ -6,10 +6,6 @@
         <c:forEach var="recipe" items="${recipes}" >
             <div class="align-items-center">
                 <span>${recipe.getName()}</span>
-                <span >${recipe.getCalories()}</span>
-                <span >${recipe.getProteins()}</span>
-                <span >${recipe.getFats()}</span>
-                <span>${recipe.getCarbohydrates()}</span>
             </div>
         </c:forEach>
     </div>

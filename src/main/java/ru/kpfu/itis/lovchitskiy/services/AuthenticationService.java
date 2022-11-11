@@ -44,16 +44,16 @@ public class AuthenticationService {
                     resp.sendRedirect(req.getServletContext().getContextPath() + "/profile");
                     return;
                 } else {
-                    req.setAttribute(AttributeName.Error.value, "Can't find user with this email or password");
+                    req.setAttribute("logError", "Can't find user with this email or password");
                 }
             } catch (RuntimeException  e) {
-                req.setAttribute(AttributeName.Error.value, "Server side problem occurred, try later");
+                req.setAttribute("logError", "Server side problem occurred, try later");
             }
         } else {
-            req.setAttribute(AttributeName.Error.value, "All fields should be filled");
+            req.setAttribute("logError", "All fields should be filled");
         }
         req.setAttribute("display", "block");
-        req.setAttribute("email", req.getParameter(User.EMAIL_KEY));
+        req.setAttribute("logEmail", req.getParameter(User.EMAIL_KEY));
         req.getServletContext().getRequestDispatcher(direction).forward(req, resp);
     }
 }
